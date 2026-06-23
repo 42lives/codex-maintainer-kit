@@ -1,0 +1,5 @@
+feat: add repository preflight scanner
+fix: handle empty issue body in triage prompt
+docs: add local-first privacy note
+security: detect private key blocks before public release
+refactor: simplify release note category matching

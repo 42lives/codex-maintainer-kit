@@ -1,0 +1,112 @@
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+from .oss_brief import build_oss_brief
+from .release_notes import build_release_notes
+from .repo_check import scan_repository
+from .triage_prompt import build_triage_prompt
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="codex-maintainer-kit",
+        description="Local-first OSS maintainer preflight and workflow tools.",
+    )
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    repo_check = subparsers.add_parser("repo-check", help="Scan a repository before public release.")
+    repo_check.add_argument("path", type=Path, help="Repository path to scan.")
+    repo_check.add_argument("--format", choices=["text", "markdown", "json"], default="text")
+    repo_check.add_argument("--output", type=Path, help="Optional output file.")
+
+    triage = subparsers.add_parser("triage-prompt", help="Generate an issue triage prompt.")
+    triage.add_argument("--issue-title", required=True)
+    triage.add_argument("--issue-body", default="")
+
+    release = subparsers.add_parser("release-notes", help="Draft release notes from commit lines.")
+    release.add_argument("commits_file", type=Path)
+
+    brief = subparsers.add_parser("oss-brief", help="Create an OpenAI Codex for OSS application brief.")
+    brief.add_argument("--project", required=True)
+    brief.add_argument("--repo", required=True)
+    brief.add_argument("--role", default="primary maintainer")
+
+    args = parser.parse_args(argv)
+
+    if args.command == "repo-check":
+        report = scan_repository(args.path)
+        rendered = _render_repo_report(report, args.format)
+        if args.output:
+            args.output.write_text(rendered, encoding="utf-8")
+        else:
+            print(rendered)
+        return 1 if report["summary"]["high"] else 0
+
+    if args.command == "triage-prompt":
+        print(build_triage_prompt(args.issue_title, args.issue_body))
+        return 0
+
+    if args.command == "release-notes":
+        commits = args.commits_file.read_text(encoding="utf-8").splitlines()
+        print(build_release_notes(commits))
+        return 0
+
+    if args.command == "oss-brief":
+        print(build_oss_brief(args.project, args.repo, args.role))
+        return 0
+
+    parser.error(f"Unknown command: {args.command}")
+    return 2
+
+
+def _render_repo_report(report: dict[str, object], output_format: str) -> str:
+    if output_format == "json":
+        return json.dumps(report, indent=2, ensure_ascii=False) + "\n"
+
+    findings = report["findings"]
+    summary = report["summary"]
+    assert isinstance(findings, list)
+    assert isinstance(summary, dict)
+
+    if output_format == "markdown":
+        lines = [
+            "# Repository Preflight Report",
+            "",
+            f"- High: {summary['high']}",
+            f"- Medium: {summary['medium']}",
+            f"- Low: {summary['low']}",
+            "",
+            "## Findings",
+            "",
+        ]
+        if not findings:
+            lines.append("No findings.")
+        for finding in findings:
+            lines.extend(
+                [
+                    f"### {finding['severity'].upper()}: {finding['title']}",
+                    "",
+                    f"- Path: `{finding['path']}`",
+                    f"- Detail: {finding['detail']}",
+                    f"- Recommendation: {finding['recommendation']}",
+                    "",
+                ]
+            )
+        return "\n".join(lines).rstrip() + "\n"
+
+    lines = [
+        "Repository Preflight Report",
+        f"High: {summary['high']}  Medium: {summary['medium']}  Low: {summary['low']}",
+        "",
+    ]
+    if not findings:
+        lines.append("No findings.")
+    for finding in findings:
+        lines.append(
+            f"[{finding['severity'].upper()}] {finding['title']} ({finding['path']}): "
+            f"{finding['detail']} Recommendation: {finding['recommendation']}"
+        )
+    return "\n".join(lines) + "\n"
