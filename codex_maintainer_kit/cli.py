@@ -4,7 +4,10 @@ import argparse
 import json
 from pathlib import Path
 
+from .issue_plan import build_issue_plan
+from .maintainer_report import build_maintainer_report
 from .oss_brief import build_oss_brief
+from .readme_score import render_readme_score, score_readme
 from .release_notes import build_release_notes
 from .repo_check import scan_repository
 from .triage_prompt import build_triage_prompt
@@ -29,6 +32,18 @@ def main(argv: list[str] | None = None) -> int:
     release = subparsers.add_parser("release-notes", help="Draft release notes from commit lines.")
     release.add_argument("commits_file", type=Path)
 
+    readme_score = subparsers.add_parser("readme-score", help="Score README readiness for a public repository.")
+    readme_score.add_argument("path", type=Path, help="Repository path or README.md path.")
+    readme_score.add_argument("--format", choices=["text", "markdown", "json"], default="text")
+
+    issues = subparsers.add_parser("issue-plan", help="Draft first public roadmap issues.")
+    issues.add_argument("--project", default="Codex Maintainer Kit")
+
+    report = subparsers.add_parser("maintainer-report", help="Summarize public maintainer readiness.")
+    report.add_argument("path", type=Path)
+    report.add_argument("--project", required=True)
+    report.add_argument("--repo", required=True)
+
     brief = subparsers.add_parser("oss-brief", help="Create an OpenAI Codex for OSS application brief.")
     brief.add_argument("--project", required=True)
     brief.add_argument("--repo", required=True)
@@ -52,6 +67,22 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "release-notes":
         commits = args.commits_file.read_text(encoding="utf-8").splitlines()
         print(build_release_notes(commits))
+        return 0
+
+    if args.command == "readme-score":
+        report = score_readme(args.path)
+        if args.format == "json":
+            print(json.dumps(report, indent=2, ensure_ascii=False))
+        else:
+            print(render_readme_score(report, args.format))
+        return 0 if report["percentage"] >= 75 else 1
+
+    if args.command == "issue-plan":
+        print(build_issue_plan(args.project))
+        return 0
+
+    if args.command == "maintainer-report":
+        print(build_maintainer_report(args.path, args.project, args.repo))
         return 0
 
     if args.command == "oss-brief":

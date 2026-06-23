@@ -6,8 +6,11 @@ This project focuses on practical maintainer chores:
 
 - Check whether a repository is ready to publish publicly.
 - Detect risky files and common secret or personal-information patterns.
+- Score README readiness for first-time open-source users.
 - Generate issue triage prompts for maintainers.
 - Draft release notes from a simple commit list.
+- Draft first roadmap issues for a new public repository.
+- Generate a maintainer readiness report.
 - Create an OpenAI Codex for OSS application brief.
 
 It runs locally and does not send repository contents to any external service.
@@ -58,6 +61,26 @@ Draft release notes from a commit list:
 python3 -m codex_maintainer_kit release-notes examples/commits.txt
 ```
 
+Score README readiness:
+
+```bash
+python3 -m codex_maintainer_kit readme-score . --format markdown
+```
+
+Draft first public roadmap issues:
+
+```bash
+python3 -m codex_maintainer_kit issue-plan --project "Codex Maintainer Kit"
+```
+
+Generate a maintainer readiness report:
+
+```bash
+python3 -m codex_maintainer_kit maintainer-report . \
+  --project "Codex Maintainer Kit" \
+  --repo "https://github.com/42lives/codex-maintainer-kit"
+```
+
 Create a short application brief for OpenAI Codex for OSS:
 
 ```bash
@@ -94,6 +117,18 @@ Turns a plain commit list into structured release note sections:
 - Documentation
 - Other
 
+### `readme-score`
+
+Scores whether `README.md` explains the project clearly enough for a public open-source repository.
+
+### `issue-plan`
+
+Drafts the first three roadmap issues so the repository shows an active maintainer path instead of a blank project page.
+
+### `maintainer-report`
+
+Summarizes public-readiness, README score, preflight results, and how Codex fits the maintainer workflow.
+
 ### `oss-brief`
 
 Creates a concise application brief that explains how the project supports open-source maintenance and how Codex could help with review, testing, documentation, triage, and security workflows.
@@ -110,6 +145,7 @@ This tool is local-first. It does not call OpenAI APIs, GitHub APIs, analytics s
 - Prompt quality checks for maintainer workflows.
 - Contributor-friendly issue labels.
 - OpenAI Academy-inspired workflow templates for planning, review, and iteration.
+- Optional GitHub API integration after the local-first workflow is stable.
 
 ## License
 

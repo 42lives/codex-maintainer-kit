@@ -26,6 +26,12 @@ I am the primary maintainer of Codex Maintainer Kit. I am building it from the p
 Codex would help me review pull requests, expand tests, improve documentation, identify edge cases in repository scanning, and build safer maintainer workflows. I would use it to improve issue triage, release note generation, security checklist coverage, contributor guidance, and repeatable review checkpoints for AI-assisted development.
 ```
 
+## Strongest Repository Signals
+
+```text
+The repository is more than a sample app. It includes a working CLI, tests, GitHub Actions, issue templates, security guidance, contribution guidance, README scoring, first-issue planning, release-note drafting, repository preflight scanning, and a maintainer readiness report. These features directly map to the maintainer tasks described in the Codex for OSS program: issue triage, release workflows, review, and security-conscious maintenance.
+```
+
 ## API Credit Use
 
 ```text
@@ -51,4 +57,6 @@ I am also using OpenAI Academy materials to improve how I structure AI-assisted 
 - Publish the repository as public.
 - Add at least one issue or roadmap item.
 - Add a first release tag after reviewing the preflight report.
+- Generate and review the maintainer report.
+- Open the first three issues from `issue-plan`.
 - Do not submit the OpenAI application until the maintainer has reviewed the final form.
