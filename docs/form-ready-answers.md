@@ -31,7 +31,7 @@ I am the primary maintainer of Codex Maintainer Kit, a local-first maintainer au
 ### Stronger Detail Form
 
 ```text
-Codex Maintainer Kit maps directly to maintainer workflows described in the Codex for OSS program: issue triage, release workflow, security hygiene, documentation quality, and review checkpoints. It is built for working professionals and non-professional developers who use AI to create useful projects but need safer ways to publish and maintain them as open source. The project is new, but actively maintained: it has CI, tests, SECURITY and CONTRIBUTING docs, releases, roadmap issues, and a closed issue shipped in v0.1.1.
+Codex Maintainer Kit maps directly to maintainer workflows described in the Codex for OSS program: issue triage, release workflow, security hygiene, documentation quality, and review checkpoints. I have spent substantial time building personal automation workflows, and I want to turn that experience into public, safer tools for other working professionals and non-professional developers. The project is new, but actively maintained: it has CI, tests, SECURITY and CONTRIBUTING docs, releases, roadmap issues, and a closed issue shipped in v0.1.1.
 ```
 
 ## API Credit Use
@@ -51,7 +51,7 @@ API credits would support optional AI-assisted maintainer workflows around the l
 ## Additional Information
 
 ```text
-I am applying as a working professional and AI-assisted builder, not as a traditional full-time OSS maintainer. My goal is to learn and share repeatable open-source maintenance workflows for people like me: builders who can create useful tools with AI but need better structure for safety, release hygiene, documentation, and review. Related public repos under 42lives include promptops-toolkit and llm-wiki-upgrader.
+I am applying as a working professional and AI-assisted builder, not as a traditional full-time OSS maintainer. I have already invested a lot of time into automating repeated writing, documentation, repository, and workflow tasks, and I plan to keep using AI to make those automations safer and more reusable. My goal is to turn that work into small public tools with good release hygiene, documentation, review checkpoints, and privacy boundaries. Related public repos under 42lives include promptops-toolkit and llm-wiki-upgrader.
 ```
 
 ## Evidence To Mention Only If Space Allows

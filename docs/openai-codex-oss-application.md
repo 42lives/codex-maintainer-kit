@@ -17,7 +17,7 @@ Codex Maintainer Kit is a local-first open-source maintainer automation toolkit 
 ## Why This Project Qualifies
 
 ```text
-I am the primary maintainer of Codex Maintainer Kit. I am building it from the perspective of a working professional and non-professional developer who uses AI tools to turn practical workflows into public open-source projects. The project helps maintainers and new builders automate common maintenance tasks such as preflight checks, issue triage, release notes, README quality checks, security-conscious documentation, and release readiness. It is especially useful for people who want practical workflow guidance without uploading private repository contents to external services.
+I am the primary maintainer of Codex Maintainer Kit. I am building it from the perspective of a working professional and non-professional developer who has already spent substantial time automating repeated writing, documentation, repository, and workflow tasks. The project helps maintainers and new builders automate common maintenance tasks such as preflight checks, issue triage, release notes, README quality checks, security-conscious documentation, and release readiness. It is especially useful for people who want practical workflow guidance without uploading private repository contents to external services.
 ```
 
 ## How Codex Would Help
@@ -41,7 +41,7 @@ I would use API credits for optional maintainer automation experiments, includin
 ## Personal Positioning
 
 ```text
-I am not applying as a traditional full-time open-source engineer. I am applying as a working professional and AI-assisted builder who wants to make small, practical maintainer tools public and useful. My goal is to use Codex to learn better open-source practices, improve safety checks, write clearer documentation, and build repeatable workflows that other non-professional developers can copy.
+I am not applying as a traditional full-time open-source engineer. I am applying as a working professional and AI-assisted builder who has already spent serious time on automation and wants to make small, practical maintainer tools public and useful. My goal is to use Codex to learn better open-source practices, improve safety checks, write clearer documentation, and build repeatable workflows that other non-professional developers can copy.
 ```
 
 ## OpenAI Academy Tie-In
