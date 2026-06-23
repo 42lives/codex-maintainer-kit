@@ -164,6 +164,17 @@ Creates a concise application brief that explains how the project supports open-
 
 This tool is local-first. It does not call OpenAI APIs, GitHub APIs, analytics services, or remote scanners.
 
+## Maintainer Workflow
+
+Use the [OpenAI Academy-inspired maintainer workflow checklist](docs/academy-workflow-checklist.md) to turn AI-assisted automation work into a reviewable loop: define the repeated task, prepare repository context, ask for a bounded improvement, verify the change, and release it.
+
+## Related Projects
+
+These companion projects support the same local-first automation direction:
+
+- [promptops-toolkit](https://github.com/42lives/promptops-toolkit): prompt linting and inventory tools for reusable AI workflows
+- [llm-wiki-upgrader](https://github.com/42lives/llm-wiki-upgrader): turns rough LLM notes into reviewable wiki pages
+
 ## Roadmap
 
 - GitHub Actions workflow for automated preflight checks.

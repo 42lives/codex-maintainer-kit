@@ -64,6 +64,7 @@ I am applying as a working professional and AI-assisted builder, not as a tradit
 - Maintainer activity: issue #1 opened, implemented, released, and closed
 - Topics: maintainer-automation, ai-workflow, issue-triage, release-automation, security-tools
 - Related repos: promptops-toolkit, llm-wiki-upgrader
+- Profile README: 42lives/42lives
 ```
 
 ## Do Not Claim
