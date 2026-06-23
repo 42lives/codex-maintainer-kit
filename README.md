@@ -49,6 +49,18 @@ Write the report to Markdown:
 python3 -m codex_maintainer_kit repo-check . --format markdown --output preflight-report.md
 ```
 
+Write the report as JSON for CI or dashboards:
+
+```bash
+python3 -m codex_maintainer_kit repo-check . --format json
+```
+
+Print the report schema:
+
+```bash
+python3 -m codex_maintainer_kit schema repo-check-report
+```
+
 Generate an issue triage prompt:
 
 ```bash
@@ -81,6 +93,15 @@ python3 -m codex_maintainer_kit maintainer-report . \
   --repo "https://github.com/42lives/codex-maintainer-kit"
 ```
 
+Example readiness output:
+
+```text
+README score: 8/8 (100%)
+Preflight high findings: 0
+Preflight medium findings: 0
+Preflight low findings: 0
+```
+
 Create a short application brief for OpenAI Codex for OSS:
 
 ```bash
@@ -101,6 +122,8 @@ Scans a repository path and reports:
 - likely secrets,
 - likely personal information,
 - large files that may not belong in a small public repository.
+
+JSON output follows [`schemas/repo-check-report.schema.json`](schemas/repo-check-report.schema.json).
 
 ### `triage-prompt`
 
@@ -128,6 +151,10 @@ Drafts the first three roadmap issues so the repository shows an active maintain
 ### `maintainer-report`
 
 Summarizes public-readiness, README score, preflight results, and how Codex fits the maintainer workflow.
+
+### `schema`
+
+Prints JSON schemas for machine-readable outputs.
 
 ### `oss-brief`
 

@@ -10,6 +10,7 @@ from .oss_brief import build_oss_brief
 from .readme_score import render_readme_score, score_readme
 from .release_notes import build_release_notes
 from .repo_check import scan_repository
+from .schemas import load_schema
 from .triage_prompt import build_triage_prompt
 
 
@@ -43,6 +44,9 @@ def main(argv: list[str] | None = None) -> int:
     report.add_argument("path", type=Path)
     report.add_argument("--project", required=True)
     report.add_argument("--repo", required=True)
+
+    schema = subparsers.add_parser("schema", help="Print a machine-readable output schema.")
+    schema.add_argument("name", choices=["repo-check-report"])
 
     brief = subparsers.add_parser("oss-brief", help="Create an OpenAI Codex for OSS application brief.")
     brief.add_argument("--project", required=True)
@@ -83,6 +87,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "maintainer-report":
         print(build_maintainer_report(args.path, args.project, args.repo))
+        return 0
+
+    if args.command == "schema":
+        print(load_schema(f"{args.name}.schema.json"))
         return 0
 
     if args.command == "oss-brief":

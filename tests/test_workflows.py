@@ -5,6 +5,7 @@ from codex_maintainer_kit.maintainer_report import build_maintainer_report
 from codex_maintainer_kit.oss_brief import build_oss_brief
 from codex_maintainer_kit.readme_score import score_readme
 from codex_maintainer_kit.release_notes import build_release_notes
+from codex_maintainer_kit.schemas import load_schema
 from codex_maintainer_kit.triage_prompt import build_triage_prompt
 
 
@@ -46,6 +47,12 @@ class WorkflowTest(unittest.TestCase):
 
         self.assertIn("OpenAI Codex Fit", report)
         self.assertIn("README score", report)
+
+    def test_repo_check_schema_is_available(self) -> None:
+        schema = load_schema("repo-check-report.schema.json")
+
+        self.assertIn("Repository Preflight Report", schema)
+        self.assertIn('"findings"', schema)
 
 
 if __name__ == "__main__":

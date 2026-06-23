@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/42lives/codex-maintainer-kit/schemas/repo-check-report.schema.json",
+  "title": "Codex Maintainer Kit Repository Preflight Report",
+  "type": "object",
+  "required": ["summary", "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "summary": {
+      "type": "object",
+      "required": ["high", "medium", "low"],
+      "additionalProperties": false,
+      "properties": {
+        "high": { "type": "integer", "minimum": 0 },
+        "medium": { "type": "integer", "minimum": 0 },
+        "low": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "path", "title", "detail", "recommendation"],
+        "additionalProperties": false,
+        "properties": {
+          "severity": { "type": "string", "enum": ["high", "medium", "low"] },
+          "path": { "type": "string" },
+          "title": { "type": "string" },
+          "detail": { "type": "string" },
+          "recommendation": { "type": "string" }
+        }
+      }
+    }
+  }
+}
