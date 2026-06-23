@@ -60,3 +60,7 @@ I am also using OpenAI Academy materials to improve how I structure AI-assisted 
 - Generate and review the maintainer report.
 - Open the first three issues from `issue-plan`.
 - Do not submit the OpenAI application until the maintainer has reviewed the final form.
+
+## Form-Ready Answers
+
+Use `docs/form-ready-answers.md` for paste-ready answers. It separates form answers from general explanation and avoids copying any accepted application text.
