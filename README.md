@@ -1,8 +1,8 @@
 # Codex Maintainer Kit
 
-Small local tools for open-source maintainers, working professionals, and AI-assisted builders who want safer, clearer project workflows.
+Local-first maintainer automation for open-source maintainers, working professionals, and AI-assisted builders who want safer, clearer project workflows.
 
-This project focuses on practical maintainer chores:
+This project focuses on practical maintainer automation:
 
 - Check whether a repository is ready to publish publicly.
 - Detect risky files and common secret or personal-information patterns.
@@ -25,7 +25,7 @@ Many working professionals and non-professional developers now use AI tools to b
 - no release note structure,
 - no clear maintainer story for contributor tools.
 
-Codex Maintainer Kit gives those builders a lightweight preflight workflow before they publish, share, or maintain a public repository.
+Codex Maintainer Kit gives those builders a lightweight automation workflow before they publish, share, or maintain a public repository.
 
 ## Installation
 
@@ -166,7 +166,7 @@ This tool is local-first. It does not call OpenAI APIs, GitHub APIs, analytics s
 
 ## Roadmap
 
-- GitHub Actions workflow for preflight checks.
+- GitHub Actions workflow for automated preflight checks.
 - JSON schema for report outputs.
 - More secret-detector patterns.
 - Prompt quality checks for maintainer workflows.

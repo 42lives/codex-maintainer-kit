@@ -11,25 +11,25 @@ https://github.com/42lives/codex-maintainer-kit
 ## Short Description
 
 ```text
-Codex Maintainer Kit is a local-first open-source toolkit that helps working professionals, solo maintainers, and non-professional developers prepare safer public repositories, triage issues, draft release notes, and document maintainer workflows.
+Codex Maintainer Kit is a local-first open-source maintainer automation toolkit that helps working professionals, solo maintainers, and non-professional developers prepare safer public repositories, triage issues, draft release notes, and document maintainer workflows.
 ```
 
 ## Why This Project Qualifies
 
 ```text
-I am the primary maintainer of Codex Maintainer Kit. I am building it from the perspective of a working professional and non-professional developer who uses AI tools to turn practical workflows into public open-source projects. The project helps maintainers and new builders publish safer repositories and manage common maintenance tasks such as preflight checks, issue triage, release notes, and security-conscious documentation. It is especially useful for people who want practical workflow guidance without uploading private repository contents to external services.
+I am the primary maintainer of Codex Maintainer Kit. I am building it from the perspective of a working professional and non-professional developer who uses AI tools to turn practical workflows into public open-source projects. The project helps maintainers and new builders automate common maintenance tasks such as preflight checks, issue triage, release notes, README quality checks, security-conscious documentation, and release readiness. It is especially useful for people who want practical workflow guidance without uploading private repository contents to external services.
 ```
 
 ## How Codex Would Help
 
 ```text
-Codex would help me review pull requests, expand tests, improve documentation, identify edge cases in repository scanning, and build safer maintainer workflows. I would use it to improve issue triage, release note generation, security checklist coverage, contributor guidance, and repeatable review checkpoints for AI-assisted development.
+Codex would help me review pull requests, expand tests, improve documentation, identify edge cases in repository scanning, and build safer maintainer automation workflows. I would use it to improve issue triage, release note generation, security checklist coverage, contributor guidance, and repeatable review checkpoints for AI-assisted development.
 ```
 
 ## Strongest Repository Signals
 
 ```text
-The repository is more than a sample app. It includes a working CLI, tests, GitHub Actions, issue templates, security guidance, contribution guidance, README scoring, first-issue planning, release-note drafting, repository preflight scanning, and a maintainer readiness report. These features directly map to the maintainer tasks described in the Codex for OSS program: issue triage, release workflows, review, and security-conscious maintenance.
+The repository is more than a sample app. It includes a working CLI, tests, GitHub Actions, issue templates, security guidance, contribution guidance, README scoring, first-issue planning, release-note drafting, repository preflight scanning, a JSON report schema, and a maintainer readiness report. These features directly map to the maintainer automation tasks described in the Codex for OSS program: issue triage, release workflows, review, and security-conscious maintenance.
 ```
 
 ## API Credit Use
