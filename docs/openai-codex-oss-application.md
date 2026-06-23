@@ -41,7 +41,7 @@ I would use API credits for optional maintainer automation experiments, includin
 ## Personal Positioning
 
 ```text
-I am not applying as a traditional full-time open-source engineer. I am applying as a working professional and AI-assisted builder who has already spent serious time on automation and wants to make small, practical maintainer tools public and useful. My goal is to use Codex to learn better open-source practices, improve safety checks, write clearer documentation, and build repeatable workflows that other non-professional developers can copy.
+I am not applying as a traditional full-time open-source engineer. I started using AI because I wanted to automate repeated writing, documentation, repository, and workflow tasks. I am applying as a working professional and AI-assisted builder who has already spent serious time on automation and wants to make small, practical maintainer tools public and useful. My goal is to use Codex to learn better open-source practices, improve safety checks, write clearer documentation, and build repeatable workflows that other non-professional developers can copy.
 ```
 
 ## OpenAI Academy Tie-In
