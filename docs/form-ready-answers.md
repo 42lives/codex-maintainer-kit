@@ -54,6 +54,12 @@ API credits would support optional AI-assisted maintainer workflows around the l
 I am applying as a working professional and AI-assisted builder, not as a traditional full-time OSS maintainer. I started using AI because I wanted to automate repeated writing, documentation, repository, and workflow tasks, and I have already invested a lot of time in that direction. I plan to keep using AI to make those automations safer and more reusable. My goal is to turn that work into small public tools with good release hygiene, documentation, review checkpoints, and privacy boundaries. Related public repos under 42lives include promptops-toolkit and llm-wiki-upgrader.
 ```
 
+## Additional Information With Future Learning Plan
+
+```text
+I am applying as a working professional and AI-assisted builder. I started using AI because I wanted to automate repeated writing, documentation, repository, and workflow tasks, and I plan to keep learning with AI for automation, web development, Mac/PC desktop app development, and Android app development. My goal is to turn practical automation work into small public tools with good release hygiene, documentation, review checkpoints, and privacy boundaries.
+```
+
 ## Evidence To Mention Only If Space Allows
 
 ```text
