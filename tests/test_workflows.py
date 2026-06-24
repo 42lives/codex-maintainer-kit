@@ -7,6 +7,7 @@ from codex_maintainer_kit.readme_score import score_readme
 from codex_maintainer_kit.release_notes import build_release_notes
 from codex_maintainer_kit.schemas import load_schema
 from codex_maintainer_kit.triage_prompt import build_triage_prompt
+from codex_maintainer_kit.cli import _should_fail_repo_check
 
 
 class WorkflowTest(unittest.TestCase):
@@ -53,6 +54,14 @@ class WorkflowTest(unittest.TestCase):
 
         self.assertIn("Repository Preflight Report", schema)
         self.assertIn('"findings"', schema)
+
+    def test_repo_check_fail_on_thresholds_are_configurable(self) -> None:
+        report = {"summary": {"high": 0, "medium": 1, "low": 1}, "findings": []}
+
+        self.assertFalse(_should_fail_repo_check(report, "none"))
+        self.assertFalse(_should_fail_repo_check(report, "high"))
+        self.assertTrue(_should_fail_repo_check(report, "medium"))
+        self.assertTrue(_should_fail_repo_check(report, "low"))
 
 
 if __name__ == "__main__":

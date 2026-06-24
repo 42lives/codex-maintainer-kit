@@ -55,6 +55,12 @@ Write the report as JSON for CI or dashboards:
 python3 -m codex_maintainer_kit repo-check . --format json
 ```
 
+Fail CI when medium or high findings exist:
+
+```bash
+python3 -m codex_maintainer_kit repo-check . --fail-on medium
+```
+
 Print the report schema:
 
 ```bash
@@ -125,6 +131,7 @@ Scans a repository path and reports:
 
 JSON output follows [`schemas/repo-check-report.schema.json`](schemas/repo-check-report.schema.json).
 The detector fixture approach is documented in [`docs/safe-secret-fixtures.md`](docs/safe-secret-fixtures.md).
+Use `--fail-on none|low|medium|high` to choose when CI should fail.
 
 ### `triage-prompt`
 
@@ -178,8 +185,8 @@ These companion projects support the same local-first automation direction:
 
 ## Roadmap
 
-- GitHub Actions workflow for automated preflight checks.
-- JSON schema for report outputs.
+- More GitHub Actions examples for automated preflight checks.
+- More JSON schemas for report outputs.
 - More secret-detector patterns.
 - More safe detector fixtures for common public-repo mistakes.
 - Prompt quality checks for maintainer workflows.

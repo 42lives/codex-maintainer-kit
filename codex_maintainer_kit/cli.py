@@ -25,6 +25,12 @@ def main(argv: list[str] | None = None) -> int:
     repo_check.add_argument("path", type=Path, help="Repository path to scan.")
     repo_check.add_argument("--format", choices=["text", "markdown", "json"], default="text")
     repo_check.add_argument("--output", type=Path, help="Optional output file.")
+    repo_check.add_argument(
+        "--fail-on",
+        choices=["none", "low", "medium", "high"],
+        default="high",
+        help="Exit with status 1 when findings at this severity or higher exist. Defaults to high.",
+    )
 
     triage = subparsers.add_parser("triage-prompt", help="Generate an issue triage prompt.")
     triage.add_argument("--issue-title", required=True)
@@ -62,7 +68,7 @@ def main(argv: list[str] | None = None) -> int:
             args.output.write_text(rendered, encoding="utf-8")
         else:
             print(rendered)
-        return 1 if report["summary"]["high"] else 0
+        return 1 if _should_fail_repo_check(report, args.fail_on) else 0
 
     if args.command == "triage-prompt":
         print(build_triage_prompt(args.issue_title, args.issue_body))
@@ -149,3 +155,17 @@ def _render_repo_report(report: dict[str, object], output_format: str) -> str:
             f"{finding['detail']} Recommendation: {finding['recommendation']}"
         )
     return "\n".join(lines) + "\n"
+
+
+def _should_fail_repo_check(report: dict[str, object], fail_on: str) -> bool:
+    if fail_on == "none":
+        return False
+
+    summary = report["summary"]
+    assert isinstance(summary, dict)
+    severity_order = {
+        "low": ("low", "medium", "high"),
+        "medium": ("medium", "high"),
+        "high": ("high",),
+    }
+    return any(summary[severity] > 0 for severity in severity_order[fail_on])

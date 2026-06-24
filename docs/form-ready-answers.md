@@ -25,13 +25,13 @@ Primary maintainer
 ### Short Form
 
 ```text
-I am the primary maintainer of Codex Maintainer Kit, a local-first maintainer automation toolkit for AI-assisted open-source builders. It supports repository preflight checks, README quality checks, issue planning, release-note drafting, JSON reporting, and maintainer readiness summaries. The repo is public, tested, CI-backed, released as v0.1.1, and already has an issue opened, implemented, released, and closed.
+I am the primary maintainer of Codex Maintainer Kit, a local-first maintainer automation toolkit for AI-assisted open-source builders. It supports repository preflight checks, configurable CI failure thresholds, README quality checks, issue planning, release-note drafting, JSON reporting, and maintainer readiness summaries. The repo is public, tested, CI-backed, released, and has multiple issues opened, implemented, released, and closed.
 ```
 
 ### Stronger Detail Form
 
 ```text
-Codex Maintainer Kit maps directly to maintainer workflows described in the Codex for OSS program: issue triage, release workflow, security hygiene, documentation quality, and review checkpoints. I have spent substantial time building personal automation workflows, and I want to turn that experience into public, safer tools for other working professionals and non-professional developers. The project is new, but actively maintained: it has CI, tests, SECURITY and CONTRIBUTING docs, releases, roadmap issues, and a closed issue shipped in v0.1.1.
+Codex Maintainer Kit maps directly to maintainer workflows described in the Codex for OSS program: issue triage, release workflow, security hygiene, documentation quality, and review checkpoints. I have spent substantial time building personal automation workflows, and I want to turn that experience into public, safer tools for other working professionals and non-professional developers. The project is new, but actively maintained: it has CI, tests, SECURITY and CONTRIBUTING docs, releases, roadmap issues, configurable preflight failure thresholds, and shipped issue work.
 ```
 
 ## API Credit Use
@@ -64,10 +64,11 @@ I am applying as a working professional and AI-assisted builder. I started using
 
 ```text
 - Public repository: 42lives/codex-maintainer-kit
-- Latest release: v0.1.1
+- Latest release: v0.1.4
 - CI status: passing
 - Tests: unittest suite
-- Maintainer activity: issue #1 opened, implemented, released, and closed
+- Maintainer activity: issues opened, implemented, released, and closed
+- Automation signal: repo-check can fail CI on high, medium, low, or no findings
 - Topics: maintainer-automation, ai-workflow, issue-triage, release-automation, security-tools
 - Related repos: promptops-toolkit, llm-wiki-upgrader
 - Profile README: 42lives/42lives
