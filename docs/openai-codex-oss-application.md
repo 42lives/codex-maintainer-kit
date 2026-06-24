@@ -29,7 +29,7 @@ Codex would help me review pull requests, expand tests, improve documentation, i
 ## Strongest Repository Signals
 
 ```text
-The repository is more than a sample app. It includes a working CLI, tests, GitHub Actions, issue templates, security guidance, contribution guidance, README scoring, first-issue planning, release-note drafting, repository preflight scanning, configurable CI failure thresholds, a JSON report schema, example reports, and a maintainer readiness report. These features directly map to the maintainer automation tasks described in the Codex for OSS program: issue triage, release workflows, review, and security-conscious maintenance.
+The repository is more than a sample app. It includes a working CLI, tests, a reusable GitHub Action, issue templates, security guidance, contribution guidance, README scoring, first-issue planning, release-note drafting, repository preflight scanning, configurable CI failure thresholds, a JSON report schema, maintainer templates, companion-repo reports, and a maintainer readiness report. These features directly map to the maintainer automation tasks described in the Codex for OSS program: issue triage, release workflows, review, and security-conscious maintenance.
 ```
 
 ## API Credit Use

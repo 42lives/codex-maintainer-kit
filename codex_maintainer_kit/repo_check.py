@@ -41,7 +41,18 @@ PERSONAL_PATTERNS = [
     ("Phone-like number", re.compile(r"\b(?:\+?\d{1,3}[-. ]?)?(?:\d{2,4}[-. ]){2}\d{3,4}\b")),
 ]
 
-SKIP_DIRS = {".git", ".venv", "venv", "node_modules", "__pycache__", ".mypy_cache", ".pytest_cache"}
+SKIP_DIRS = {
+    ".agents",
+    ".codex",
+    ".git",
+    ".mypy_cache",
+    ".omx",
+    ".pytest_cache",
+    ".venv",
+    "__pycache__",
+    "node_modules",
+    "venv",
+}
 
 
 def scan_repository(path: Path) -> dict[str, object]:

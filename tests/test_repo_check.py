@@ -78,6 +78,21 @@ class RepoCheckTest(unittest.TestCase):
         self.assertEqual(by_path["export.csv"]["severity"], "medium")
         self.assertEqual(by_path["private.pem"]["severity"], "high")
 
+    def test_repo_check_skips_local_tool_state_directories(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            write_public_repo_basics(root)
+            (root / ".omx").mkdir()
+            fake_phone = "010" + "-1234-5678"
+            (root / ".omx" / "state.json").write_text(f"{fake_phone}\n", encoding="utf-8")
+            (root / ".codex").mkdir()
+            fake_email = "person" + "@" + "example.test"
+            (root / ".codex" / "notes.txt").write_text(f"{fake_email}\n", encoding="utf-8")
+
+            report = scan_repository(root)
+
+        self.assertEqual(report["summary"]["medium"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

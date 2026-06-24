@@ -1,4 +1,5 @@
 import unittest
+from pathlib import Path
 
 from codex_maintainer_kit.issue_plan import build_issue_plan
 from codex_maintainer_kit.maintainer_report import build_maintainer_report
@@ -62,6 +63,17 @@ class WorkflowTest(unittest.TestCase):
         self.assertFalse(_should_fail_repo_check(report, "high"))
         self.assertTrue(_should_fail_repo_check(report, "medium"))
         self.assertTrue(_should_fail_repo_check(report, "low"))
+
+    def test_github_action_and_templates_are_documented(self) -> None:
+        action = Path("action.yml").read_text(encoding="utf-8")
+
+        self.assertIn("using: composite", action)
+        self.assertIn("fail-on", action)
+        self.assertTrue(Path("docs/github-action.md").exists())
+        self.assertTrue(Path("examples/workflows/repo-preflight.yml").exists())
+        self.assertTrue(Path("templates/public-repo-checklist.md").exists())
+        self.assertTrue(Path("templates/release-workflow.md").exists())
+        self.assertTrue(Path("templates/security-preflight.md").exists())
 
 
 if __name__ == "__main__":

@@ -1,0 +1,25 @@
+name: Repository Preflight
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  repo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: 42lives/codex-maintainer-kit@v0.6.0
+        with:
+          path: "."
+          fail-on: high
+          format: markdown
+          output: repo-check-report.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: repo-check-report
+          path: repo-check-report.md

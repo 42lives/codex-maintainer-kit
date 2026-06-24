@@ -1,0 +1,38 @@
+name: Codex Maintainer Kit Repo Check
+description: Run local-first repository preflight checks for small open-source maintainers.
+
+inputs:
+  path:
+    description: Repository path to scan.
+    required: false
+    default: "."
+  fail-on:
+    description: Severity threshold that should fail CI. Use none, low, medium, or high.
+    required: false
+    default: "high"
+  format:
+    description: Report format. Use markdown, json, or text.
+    required: false
+    default: "markdown"
+  output:
+    description: Report file path to write.
+    required: false
+    default: "repo-check-report.md"
+
+outputs:
+  report-path:
+    description: Path to the generated report.
+    value: ${{ inputs.output }}
+
+runs:
+  using: composite
+  steps:
+    - name: Run repository preflight
+      shell: bash
+      run: |
+        set -euo pipefail
+        mkdir -p "$(dirname "${{ inputs.output }}")"
+        PYTHONPATH="${GITHUB_ACTION_PATH}:${PYTHONPATH:-}" python3 -m codex_maintainer_kit repo-check "${{ inputs.path }}" \
+          --fail-on "${{ inputs['fail-on'] }}" \
+          --format "${{ inputs.format }}" \
+          --output "${{ inputs.output }}"

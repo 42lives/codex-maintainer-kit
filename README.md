@@ -1,6 +1,6 @@
 # Codex Maintainer Kit
 
-Local-first maintainer automation for open-source maintainers, working professionals, and AI-assisted builders who want safer, clearer project workflows.
+Local-first maintenance automation for small open-source maintainers who need preflight checks, CI gates, issue planning, release notes, and reviewable workflows before publishing public repositories.
 
 This project focuses on practical maintainer automation:
 
@@ -12,6 +12,7 @@ This project focuses on practical maintainer automation:
 - Draft first roadmap issues for a new public repository.
 - Generate a maintainer readiness report.
 - Create an OpenAI Codex for OSS application brief.
+- Run the repository preflight as a reusable GitHub Action.
 
 It runs locally and does not send repository contents to any external service.
 
@@ -59,6 +60,17 @@ Fail CI when medium or high findings exist:
 
 ```bash
 python3 -m codex_maintainer_kit repo-check . --fail-on medium
+```
+
+Run the same check from GitHub Actions:
+
+```yaml
+- uses: 42lives/codex-maintainer-kit@v0.6.0
+  with:
+    path: "."
+    fail-on: high
+    format: markdown
+    output: repo-check-report.md
 ```
 
 Print the report schema:
@@ -132,6 +144,7 @@ Scans a repository path and reports:
 JSON output follows [`schemas/repo-check-report.schema.json`](schemas/repo-check-report.schema.json).
 The detector fixture approach is documented in [`docs/safe-secret-fixtures.md`](docs/safe-secret-fixtures.md).
 Use `--fail-on none|low|medium|high` to choose when CI should fail.
+Use the reusable GitHub Action in [`docs/github-action.md`](docs/github-action.md) when another repository should run the same check in CI.
 
 ### `triage-prompt`
 
@@ -168,6 +181,18 @@ Prints JSON schemas for machine-readable outputs.
 
 Creates a concise application brief that explains how the project supports open-source maintenance and how Codex could help with review, testing, documentation, triage, and security workflows.
 
+## GitHub Action
+
+Use this repository as a reusable CI preflight action:
+
+```yaml
+- uses: 42lives/codex-maintainer-kit@v0.6.0
+  with:
+    fail-on: high
+```
+
+See [`docs/github-action.md`](docs/github-action.md) and [`examples/workflows/repo-preflight.yml`](examples/workflows/repo-preflight.yml).
+
 ## Privacy
 
 This tool is local-first. It does not call OpenAI APIs, GitHub APIs, analytics services, or remote scanners.
@@ -175,6 +200,12 @@ This tool is local-first. It does not call OpenAI APIs, GitHub APIs, analytics s
 ## Maintainer Workflow
 
 Use the [OpenAI Academy-inspired maintainer workflow checklist](docs/academy-workflow-checklist.md) to turn AI-assisted automation work into a reviewable loop: define the repeated task, prepare repository context, ask for a bounded improvement, verify the change, and release it.
+
+Reusable maintainer templates are available in [`templates/`](templates/):
+
+- public repository checklist,
+- release workflow,
+- security preflight.
 
 ## Related Projects
 
@@ -186,6 +217,7 @@ These companion projects support the same local-first automation direction:
 ## Roadmap
 
 - More GitHub Actions examples for automated preflight checks.
+- Dogfood the action across companion repositories.
 - More JSON schemas for report outputs.
 - More secret-detector patterns.
 - More safe detector fixtures for common public-repo mistakes.
