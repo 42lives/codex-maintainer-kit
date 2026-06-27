@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: 42lives/codex-maintainer-kit@v0.6.0
+      - uses: 42lives/codex-maintainer-kit@v0.6.1
         with:
           path: "."
           fail-on: high

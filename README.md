@@ -13,6 +13,7 @@ This project focuses on practical maintainer automation:
 - Generate a maintainer readiness report.
 - Create an OpenAI Codex for OSS application brief.
 - Run the repository preflight as a reusable GitHub Action.
+- Document maintainer use cases for AI-assisted public repositories.
 
 It runs locally and does not send repository contents to any external service.
 
@@ -27,6 +28,8 @@ Many working professionals and non-professional developers now use AI tools to b
 - no clear maintainer story for contributor tools.
 
 Codex Maintainer Kit gives those builders a lightweight automation workflow before they publish, share, or maintain a public repository.
+
+See [Maintainer Use Cases](docs/maintainer-use-cases.md) for the intended users, review boundaries, and AI-assisted maintainer workflow this project supports.
 
 ## Installation
 
@@ -65,7 +68,7 @@ python3 -m codex_maintainer_kit repo-check . --fail-on medium
 Run the same check from GitHub Actions:
 
 ```yaml
-- uses: 42lives/codex-maintainer-kit@v0.6.0
+- uses: 42lives/codex-maintainer-kit@v0.6.1
   with:
     path: "."
     fail-on: high
@@ -186,7 +189,7 @@ Creates a concise application brief that explains how the project supports open-
 Use this repository as a reusable CI preflight action:
 
 ```yaml
-- uses: 42lives/codex-maintainer-kit@v0.6.0
+- uses: 42lives/codex-maintainer-kit@v0.6.1
   with:
     fail-on: high
 ```

@@ -31,7 +31,7 @@ I am the primary maintainer of Codex Maintainer Kit, a local-first maintainer au
 ### Stronger Detail Form
 
 ```text
-Codex Maintainer Kit maps directly to maintainer workflows described in the Codex for OSS program: issue triage, release workflow, security hygiene, documentation quality, and review checkpoints. I have spent substantial time building personal automation workflows, and I want to turn that experience into public, safer tools for other working professionals and non-professional developers. The project is new and not yet widely adopted, but actively maintained: it has CI, tests, SECURITY and CONTRIBUTING docs, releases, roadmap issues, a reusable GitHub Action, configurable preflight failure thresholds, and shipped issue work.
+Codex Maintainer Kit maps directly to maintainer workflows described in the Codex for OSS program: issue triage, release workflow, security hygiene, documentation quality, and review checkpoints. I have spent substantial time building personal automation workflows, and I want to turn that experience into public, safer tools for other working professionals and non-professional developers. The project is new and not yet widely adopted, but actively maintained: it has CI, tests, SECURITY and CONTRIBUTING docs, releases, roadmap issues, maintainer use-case documentation, a reusable GitHub Action, configurable preflight failure thresholds, and shipped issue work.
 ```
 
 ## API Credit Use
@@ -64,7 +64,7 @@ I am applying as a working professional and AI-assisted builder. I started using
 
 ```text
 - Public repository: 42lives/codex-maintainer-kit
-- Latest release: v0.6.0
+- Latest release: v0.6.1
 - CI status: passing
 - Tests: unittest suite
 - Maintainer activity: issues opened, implemented, released, and closed
